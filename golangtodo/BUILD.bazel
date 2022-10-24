@@ -1,0 +1,18 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "golangtodo_lib",
+    srcs = ["main.go"],
+    importpath = "mytodo/golangtodo",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//golangtodo/internal",
+        "//golangtodo/server",
+    ],
+)
+
+go_binary(
+    name = "golangtodo",
+    embed = [":golangtodo_lib"],
+    visibility = ["//visibility:public"],
+)

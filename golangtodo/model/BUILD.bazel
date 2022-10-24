@@ -1,0 +1,12 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "model",
+    srcs = [
+        "list.go",
+        "list_entry.go",
+    ],
+    importpath = "mytodo/golangtodo/model",
+    visibility = ["//visibility:public"],
+    deps = ["@io_gorm_gorm//:gorm"],
+)
